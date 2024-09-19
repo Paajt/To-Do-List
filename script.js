@@ -5,7 +5,7 @@ const addButton = document.querySelector('#addToDoButton');
 const addEnterKey = document.querySelector('.inputToDo')
 const todoList = [];
 
-//# Calling function to show the To-do list
+//# Calling function to show the To-do list #
 showTodoList();
 
 // Event Listener for clicking the add button
@@ -19,7 +19,7 @@ addEnterKey.addEventListener("keypress", function(e) {
     }
 });
 
-//# Function to show the To-do list when adding a task to the list with a for-loop
+//# Function when adding a task to the list with a for-loop #
 function showTodoList() {
 
     let todoListHTML = '';
