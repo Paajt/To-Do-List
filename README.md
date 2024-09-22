@@ -5,7 +5,7 @@ Done:
 Add tasks to a list with a button click.
 Alert when no text input.
 Check completed tasks when clicked on.
-Delete tasks with a button.
+Delete tasks with a trash can icon.
 Task counter that updates when tasks are added, completed or removed.
 
 Work in progress:
