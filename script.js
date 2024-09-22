@@ -1,56 +1,98 @@
 // Script goes here:
 
 // Variables
-const addButton = document.querySelector('#addToDoButton');
-const addEnterKey = document.querySelector('.inputToDo')
-const todoList = [];
+const inputTodo = document.querySelector('#inputTodo');
+const addButton = document.querySelector('#addButton');
+const tasksLeft = document.querySelector('#tasksLeft');
+const todoList = document.querySelector('#todoList');
+const todoArray = [];
+let taskCounter = 0;
 
-//# Calling function to show the To-do list #
-showTodoList();
-
-// Event Listener for clicking the add button
-addButton.addEventListener("click", addTodo);
-
-// Event Listener with if-statement for input when pressing 'Enter' instead of clicking the button
-addEnterKey.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-        e.preventDefault();
-        document.querySelector('#addToDoButton').click();
-    }
-});
-
-//# Function when adding a task to the list with a for-loop #
-function showTodoList() {
-
-    let todoListHTML = '';
-
-    for (let i = 0; i < todoList.length; i++) {
-        const todo = todoList[i];
-        const html = `<li>${todo}</li>`;
-        todoListHTML += html; 
-    }
-
-    console.log(todoListHTML);
-
-    document.querySelector('.toDoList').innerHTML = todoListHTML;
-    }
-
-/*  Function for adding a task to the To-do list with if-statement to not add empty text.
-    Also a trim() to avoid whitespace abuse in input! */
-function addTodo() {
-    const inputElement = document.querySelector('.inputToDo');
-    const userText = inputElement.value;
-    let userTextTrim = userText.trim();
-
-    if (userTextTrim === '') {
-        alert('Need to type something!');
-    }
-    else {
-        todoList.push(userTextTrim);
-        console.log(todoList);
-
-        inputElement.value = '';
-
-        showTodoList();
-    }
+// Function to update the task counter
+function updateTaskCounter() {
+    tasksLeft.innerText = `Tasks left: ${taskCounter}`;
 }
+
+// EventListener for clicking the add button
+addButton.addEventListener(
+    "click",
+    function () {
+
+        // Get value from input
+        let text = inputTodo.value;
+
+        // Condition: check input not empty
+        if (text === '') {
+            alert("Can't add empty task!");
+            return;
+        }
+
+        // Add task to the Array
+        todoArray.push(text);
+
+        // Increase task counter
+        taskCounter++;
+
+        updateTaskCounter();
+
+        // Add new html elements in ul
+        const listItem = document.createElement('li');
+        todoList.appendChild(listItem);
+
+        const itemLabel = document.createElement('span');
+        itemLabel.innerText = text;
+        listItem.appendChild(itemLabel);
+
+        // Add new delete button element in html 
+        let deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete task';
+        deleteButton.type = 'button';
+        listItem.appendChild(deleteButton);
+
+        // Add eventlistener to the new span-element
+        itemLabel.addEventListener(
+            'click',
+            function () {
+
+                //Add and remove class for completed task
+                itemLabel.classList.toggle('completed');
+
+                // Update counter when task is clicked on/completed
+                if (itemLabel.classList.contains('completed')) {
+                    taskCounter--;
+                }
+                else {
+                    taskCounter++;
+                }
+
+                updateTaskCounter();
+
+            }
+        );
+
+        // Add EvenListener for delete button
+        deleteButton.addEventListener('click', function () {
+
+            // Remove task from todoArray
+            const index = todoArray.indexOf(text);
+            if (index > -1) {
+                todoArray.splice(index, 1);
+            }
+
+            // Remove the list item from DOM
+            todoList.removeChild(listItem);
+
+            // Decrease task counter only if the task was not completed
+            if (!itemLabel.classList.contains('completed')) {
+                taskCounter--;
+            }
+
+            // Update task counter
+            updateTaskCounter();
+
+        });
+
+        inputTodo.value = '';
+
+    }
+);
