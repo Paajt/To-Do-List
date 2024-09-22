@@ -21,26 +21,29 @@ header {
     flex-direction: column;
     padding: 5px 20px 5px 20px;
     border: dotted 4px black;
+    background-color: beige;
 }
 
 section {
     margin: auto;
     padding: auto;
 
- }
+}
 
 input {
+    font-size: 16px;
     border: solid 2px black;
+    border-radius: 25px;
     flex-grow: 1;
     height: 20px;
+    width: 500px;
     padding: 10px;
 }
 
 .completed {
-    
     color: gray;
     text-decoration-line: line-through;
-    
+
 }
 
 span:hover {
@@ -52,31 +55,45 @@ ul {
     min-width: 25%;
     background-color: beige;
 }
+
 li {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px;
     list-style: none;
     height: 20px;
-    text-align: left;
-
+    width: 400px;
 }
 
-button {
+#addButton {
+    font-size: 16px;
+    border: solid 2px black;
     border-radius: 25px;
-    padding: 8px;
-    margin-left: 20px;
-}
-
-button:hover {
+    padding: 10px;
     cursor: pointer;
-    color: white;
-    background-color: crimson;
 }
 
 #addButton:hover {
     color: white;
     background-color: darkgreen;
+}
+
+.deleteButton {
+    border: none;
+    background-color: beige;
+    font-size: 16px;
+    border-radius: 25px;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: crimson;
+    border: solid 2px black;
+    font-size: 20px;
 }
 
 #appInfo {
