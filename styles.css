@@ -1,1 +1,84 @@
 /* Style goes here */
+
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    text-shadow: 1px 1px 3px black;
+}
+
+header {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    padding: 5px 20px 5px 20px;
+    border: dotted 4px black;
+}
+
+section {
+    margin: auto;
+    padding: auto;
+
+ }
+
+input {
+    border: solid 2px black;
+    flex-grow: 1;
+    height: 20px;
+    padding: 10px;
+}
+
+.completed {
+    
+    color: gray;
+    text-decoration-line: line-through;
+    
+}
+
+span:hover {
+    cursor: pointer;
+    color: darkgreen;
+}
+
+ul {
+    min-width: 25%;
+    background-color: beige;
+}
+li {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    list-style: none;
+    height: 20px;
+    text-align: left;
+
+}
+
+button {
+    border-radius: 25px;
+    padding: 8px;
+    margin-left: 20px;
+}
+
+button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: crimson;
+}
+
+#addButton:hover {
+    color: white;
+    background-color: darkgreen;
+}
+
+#appInfo {
+    font-size: large;
+}
