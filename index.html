@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>To-Do-List</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body class="container">
     <header class="top">
-        <h2 class="headline">To-Do-List <i class="fa-solid fa-list-check"></i></h2>
+        <h1 class="headline">To-Do-List <i class="fa-solid fa-list-check"></i></h1>
     </header>
 
-    <input placeholder="Add To-Do..." class="inputToDo">
-    <button class="addButton" id="addToDoButton">Add</button>
+    <p id="appInfo">Add a task, click on it to complete it or remove it from the trashcan icon</p>
 
-    <section class="toDoList">text</section>
+    <section>
+        <input type="text" name="inputTodo" id="inputTodo" placeholder="Add task...">
+        <button type="button" id="addButton">Add Task</button>
+    </section>
 
-         
+    <section>
+        <ul id="todoList">
+        </ul>
+    </section>
+    <p id="tasksLeft">Tasks left: 0</p>
+
+
+
+
+    <small>Some more info</small>
+
+
+
+
     <script src='script.js'></script>
 </body>
+
 </html>
