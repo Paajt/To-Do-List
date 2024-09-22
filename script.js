@@ -43,10 +43,11 @@ addButton.addEventListener(
         itemLabel.innerText = text;
         listItem.appendChild(itemLabel);
 
-        // Add new delete button element in html 
+        // Add new delete button element in html with trash can icon
         let deleteButton = document.createElement('button');
-        deleteButton.innerText = 'Delete task';
+        deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
         deleteButton.type = 'button';
+        deleteButton.classList.add('deleteButton');
         listItem.appendChild(deleteButton);
 
         // Add eventlistener to the new span-element
