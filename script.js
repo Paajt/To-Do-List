@@ -18,8 +18,8 @@ addButton.addEventListener(
     "click",
     function () {
 
-        // Get value from input
-        let text = inputTodo.value;
+        // Get value from input and remove whitespaces
+        let text = inputTodo.value.trim();
 
         // Condition: check input not empty
         if (text === '') {
@@ -58,7 +58,7 @@ addButton.addEventListener(
                 //Add and remove class for completed task
                 itemLabel.classList.toggle('completed');
 
-                // Update counter when task is clicked on/completed and uncompleted again
+                // Update counter: when task is clicked on/completed and updates if uncompleted again
                 if (itemLabel.classList.contains('completed')) {
                     taskCounter--;
                 }
@@ -83,7 +83,7 @@ addButton.addEventListener(
             // Remove the list item from DOM
             todoList.removeChild(listItem);
 
-            // Decrease task count only if the task was completed
+            // Decrease task count only if the task was clicked on/completed
             if (!itemLabel.classList.contains('completed')) {
                 taskCounter--;
             }
@@ -93,7 +93,7 @@ addButton.addEventListener(
 
         });
 
-        // Resets input not placeholder after adding a task 
+        // Resets input to placeholder after adding a task 
         inputTodo.value = '';
 
     }
