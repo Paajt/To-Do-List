@@ -17,7 +17,7 @@ function updateTaskCounter() {
 addButton.addEventListener(
     "click",
     function () {
-
+        
         // Get value from input
         let text = inputTodo.value;
 
@@ -30,7 +30,7 @@ addButton.addEventListener(
         // Add task to the Array
         todoArray.push(text);
 
-        // Increase task counter
+        // Increase task count
         taskCounter++;
 
         updateTaskCounter();
@@ -82,7 +82,7 @@ addButton.addEventListener(
             // Remove the list item from DOM
             todoList.removeChild(listItem);
 
-            // Decrease task counter only if the task was not completed
+            // Decrease task count only if the task was completed
             if (!itemLabel.classList.contains('completed')) {
                 taskCounter--;
             }
