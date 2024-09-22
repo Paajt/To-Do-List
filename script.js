@@ -17,7 +17,7 @@ function updateTaskCounter() {
 addButton.addEventListener(
     "click",
     function () {
-        
+
         // Get value from input
         let text = inputTodo.value;
 
@@ -58,7 +58,7 @@ addButton.addEventListener(
                 //Add and remove class for completed task
                 itemLabel.classList.toggle('completed');
 
-                // Update counter when task is clicked on/completed
+                // Update counter when task is clicked on/completed and uncompleted again
                 if (itemLabel.classList.contains('completed')) {
                     taskCounter--;
                 }
@@ -93,6 +93,7 @@ addButton.addEventListener(
 
         });
 
+        // Resets input not placeholder after adding a task 
         inputTodo.value = '';
 
     }
