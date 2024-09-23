@@ -1,6 +1,6 @@
 // Script goes here:
 
-// Declared HTML variables
+// Declared HTML elements
 const inputTodo = document.querySelector('#inputTodo');
 const addButton = document.querySelector('#addButton');
 const alertText = document.querySelector('#alert');
@@ -8,7 +8,7 @@ const tasksLeft = document.querySelector('#tasksLeft');
 const tasksDone = document.querySelector('#tasksDone');
 const todoList = document.querySelector('#todoList');
 
-// Declare variables
+// Declared variables
 const todoArray = [];
 let tasksCompleted = 0;
 let taskCounter = 0;
@@ -40,8 +40,14 @@ addButton.addEventListener(
             alertText.innerText = '';
         }
 
-        // Add task to the Array
-        todoArray.push(text);
+        // Create task object
+        const taskObject = {
+            text: text,
+            completed: false
+        };
+
+        // Add taskObject to the Array
+        todoArray.push(taskObject);
 
         // Increase task count
         taskCounter++;
@@ -71,8 +77,10 @@ addButton.addEventListener(
                 //Add and remove class for completed task
                 itemLabel.classList.toggle('completed');
 
-                // Update both counters: when task is clicked on/completed and updates if not completed again
-                if (itemLabel.classList.contains('completed')) {
+                taskObject.completed = !taskObject.completed;
+
+                // Update both counters when task is clicked on/completed AND updates if not completed again
+                if (taskObject.completed) {
                     taskCounter--;
                     tasksCompleted++;
                 }
@@ -91,21 +99,27 @@ addButton.addEventListener(
         deleteButton.addEventListener('click', function () {
 
             // Remove task from todoArray
-            const index = todoArray.indexOf(text);
+            const index = todoArray.indexOf(taskObject);
             if (index > -1) {
                 todoArray.splice(index, 1);
+
+                // Task completed counter - only if task completed first
+                if (taskObject.completed) {
+                    tasksCompleted--;
+                }
             }
 
             // Remove the list item from DOM
             todoList.removeChild(listItem);
 
             // Decrease task count only if the task was clicked on/completed
-            if (!itemLabel.classList.contains('completed')) {
+            if (!taskObject.completed) {
                 taskCounter--;
             }
 
-            // Update task counter
+            // Update task counters
             updateTaskCounter();
+            updateTasksCompleted();
 
         });
 
