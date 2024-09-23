@@ -1,11 +1,14 @@
 // Script goes here:
 
-// Variables
+// Declared HTML variables
 const inputTodo = document.querySelector('#inputTodo');
 const addButton = document.querySelector('#addButton');
+const alertText = document.querySelector('#alert');
 const tasksLeft = document.querySelector('#tasksLeft');
 const tasksDone = document.querySelector('#tasksDone');
 const todoList = document.querySelector('#todoList');
+
+// Declare variables
 const todoArray = [];
 let tasksCompleted = 0;
 let taskCounter = 0;
@@ -30,8 +33,11 @@ addButton.addEventListener(
 
         // Condition: check input not empty
         if (text === '') {
-            alert("Can't add empty task!");
+            alertText.innerText = 'Need to type something!';
             return;
+        }
+        else {
+            alertText.innerText = '';
         }
 
         // Add task to the Array
@@ -65,7 +71,7 @@ addButton.addEventListener(
                 //Add and remove class for completed task
                 itemLabel.classList.toggle('completed');
 
-                // Update both counters: when task is clicked on/completed and updates if uncompleted again
+                // Update both counters: when task is clicked on/completed and updates if not completed again
                 if (itemLabel.classList.contains('completed')) {
                     taskCounter--;
                     tasksCompleted++;
