@@ -69,7 +69,7 @@ addButton.addEventListener(
         deleteButton.classList.add('deleteButton');
         listItem.appendChild(deleteButton);
 
-        // Add eventlistener to the new span-element
+        // Add eventlistener to the span-element
         itemLabel.addEventListener(
             'click',
             function () {
@@ -91,7 +91,7 @@ addButton.addEventListener(
 
                 updateTaskCounter();
                 updateTasksCompleted();
-
+                
             }
         );
 
