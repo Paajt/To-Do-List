@@ -27,7 +27,11 @@ header {
 section {
     margin: auto;
     padding: auto;
+}
 
+#alert {
+    font-weight: bold;
+    color: red;
 }
 
 input {
@@ -98,4 +102,5 @@ li {
 
 #appInfo {
     font-size: large;
+    padding: 20px;
 }
