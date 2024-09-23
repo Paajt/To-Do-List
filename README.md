@@ -7,7 +7,7 @@
 * Check completed tasks when clicked on.
 * Delete tasks with a trash can icon.
 * Task counter that updates when tasks are added, completed or removed.
-* Task completed counter that updates when tasks are completed or uncompleted again.
+* Task completed counter that updates when tasks are completed or incompleted again or removed.
 
 #### Work in progress:
 * Add tasks with 'Enter' key instead of button click.
