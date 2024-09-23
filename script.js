@@ -15,7 +15,7 @@ function updateTaskCounter() {
     tasksLeft.innerText = `Tasks left: ${taskCounter}`;
 }
 
-// Function to update the tasks completed counter
+// Function to update the task completed counter
 function updateTasksCompleted() {
     tasksDone.innerText = `Tasks completed: ${tasksCompleted}`;
 }
@@ -93,10 +93,9 @@ addButton.addEventListener(
             // Remove the list item from DOM
             todoList.removeChild(listItem);
 
-            // Decrease task count only if the task was clicked on/completed & increase completed tasks
+            // Decrease task count only if the task was clicked on/completed
             if (!itemLabel.classList.contains('completed')) {
                 taskCounter--;
-                tasksCompleted++;
             }
 
             // Update task counter
