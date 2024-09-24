@@ -63,7 +63,7 @@ addButton.addEventListener(
         listItem.appendChild(itemLabel);
 
         // Add delete button element in html with trash can icon
-        let deleteButton = document.createElement('button');
+        const deleteButton = document.createElement('button');
         deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
         deleteButton.type = 'button';
         deleteButton.classList.add('deleteButton');
