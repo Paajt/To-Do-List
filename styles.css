@@ -29,6 +29,11 @@ section {
     padding: auto;
 }
 
+div {
+    margin: auto;
+    padding: auto;
+}
+
 #alert {
     font-weight: bold;
     color: red;
